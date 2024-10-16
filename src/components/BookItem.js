@@ -9,25 +9,25 @@ const BookItem = ({ book, onEdit, onDelete }) => {
       <Grid container alignItems="center">
         <Grid item xs={9}>
           <ListItemText
-            primary={<Typography variant="h6">{book.title}</Typography>}
+            primary={<Typography variant="h6" color="secondary">{book.title}</Typography>}
             secondary={
               <>
-                <Typography component="span" variant="body2" color="text.primary">
+                <Typography component="span" variant="body2" color="text.primary" >
                   by {book.author}
                 </Typography>
                 {` — ${book.year}`}
-                {book.isbn && <Typography variant="body2">ISBN: {book.isbn}</Typography>}
+                {book.pages && <Typography variant="body2">PAGES: {book.pages}</Typography>}
               </>
             }
           />
         </Grid>
         <Grid item xs={3} container justifyContent="flex-end">
-          <IconButton edge="end" aria-label="edit" onClick={() => onEdit(book)}
+          <IconButton edge="end" aria-label="edit" color="success" onClick={() => onEdit(book)}
             sx={{ mr:1}}
             >
             <EditIcon />
           </IconButton>
-          <IconButton edge="end" aria-label="delete" onClick={() => onDelete(book.id)}>
+          <IconButton edge="end" aria-label="delete" color="error" onClick={() => onDelete(book.id)}>
             <DeleteIcon />
           </IconButton>
         </Grid>

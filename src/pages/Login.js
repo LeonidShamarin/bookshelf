@@ -24,10 +24,11 @@ const Login = ({ setIsAuthenticated }) => {
   variant="h4" 
   component="h1" 
   gutterBottom 
+  color="success"
   sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt:10 }}
 >
 Welcome to BookShelf
-  <EmojiEmotionsIcon sx={{ ml: 1 }} /> 
+  <EmojiEmotionsIcon sx={{ ml: 1 }} color="error"/> 
   
 </Typography>
       <LoginForm onLogin={handleLogin} />

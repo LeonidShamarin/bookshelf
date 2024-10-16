@@ -32,7 +32,7 @@ const BookListView = ({ setIsAuthenticated }) => {
               <Typography variant="h4" component="h1" gutterBottom
                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt:1 }}
               >
-                Your BookShelf
+                List of your books
               </Typography>
               <BookList books={books} onEdit={handleEdit} onDelete={handleDelete} />
             </Paper>
