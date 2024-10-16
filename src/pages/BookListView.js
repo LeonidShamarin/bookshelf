@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Button } from '@mui/material';
+import { Container, Typography, Grid, Paper } from '@mui/material';
 import BookList from '../components/BookList';
+import NavBar from '../components/NavBar';
+import { getBooks, deleteBook } from '../utils/localStorage';
 
-const BookListView = () => {
+const BookListView = ({ setIsAuthenticated }) => {
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedBooks = JSON.parse(localStorage.getItem('books') || '[]');
-    setBooks(storedBooks);
+    setBooks(getBooks());
   }, []);
 
   const handleEdit = (book) => {
@@ -17,26 +18,28 @@ const BookListView = () => {
   };
 
   const handleDelete = (id) => {
-    const updatedBooks = books.filter(book => book.id !== id);
-    setBooks(updatedBooks);
-    localStorage.setItem('books', JSON.stringify(updatedBooks));
+    deleteBook(id);
+    setBooks(getBooks());
   };
-
-  const handleAddNew = () => {
-    navigate('/add');
-  };
-
 
   return (
-    <Container maxWidth="md">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Your BookShelf
-      </Typography>
-      <Button variant="contained" color="primary" onClick={handleAddNew} sx={{ mb: 2 }}>
-        Add New Book
-      </Button>
-      <BookList books={books} onEdit={handleEdit} onDelete={handleDelete} />
-    </Container>
+    <>
+      <NavBar setIsAuthenticated={setIsAuthenticated} />
+      <Container maxWidth="md" style={{ marginTop: '2rem' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper elevation={3} style={{ padding: '1rem' }}>
+              <Typography variant="h4" component="h1" gutterBottom
+               sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt:1 }}
+              >
+                Your BookShelf
+              </Typography>
+              <BookList books={books} onEdit={handleEdit} onDelete={handleDelete} />
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
 };
 

@@ -19,9 +19,9 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 300, margin: 'auto' }}>
+    <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 300, margin: 'auto', mt:10 }}>
       <Typography variant="h6"  gutterBottom>
-        Login to BookShelf
+        Login 
       </Typography>
       <TextField
         fullWidth

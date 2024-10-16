@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import BookForm from '../components/BookForm';
 
 const AddBook = () => {
@@ -17,10 +17,7 @@ const AddBook = () => {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Add New Book
-      </Typography>
-      <BookForm onSubmit={handleAddBook} />
+           <BookForm onSubmit={handleAddBook} />
     </Container>
   );
 };

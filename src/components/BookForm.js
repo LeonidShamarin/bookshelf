@@ -41,7 +41,10 @@ const BookForm = ({ onSubmit, initialData = {} }) => {
       onSubmit={handleSubmit}
       sx={{ maxWidth: 400, margin: "auto" }}
     >
-      <Typography variant="h6" gutterBottom>
+     
+      <Typography variant="h4" component="h1"  gutterBottom
+      sx={{ mt:10 }}
+      >
         {initialData.title ? "Edit Book" : "Add New Book"}
       </Typography>
       <TextField
