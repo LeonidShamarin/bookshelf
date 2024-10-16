@@ -8,14 +8,23 @@ import Login from './pages/Login';
 import ProtectedRoute from './ProtectedRoute';
 import { getIsAuthenticated, setIsAuthenticated } from './utils/localStorage';
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
 
 function App() {
   const [isAuthenticated, setIsAuthenticatedState] = useState(getIsAuthenticated());
 
   const handleSetIsAuthenticated = (value) => {
     setIsAuthenticatedState(value);
-    setIsAuthenticated(value);
+    setIsAuthenticated(value);    
   };
 
   return (
