@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
+
 const NavBar = ({ setIsAuthenticated }) => {
   const handleLogout = () => {
     setIsAuthenticated(false);

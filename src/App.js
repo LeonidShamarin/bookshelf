@@ -37,8 +37,8 @@ function App() {
           <Route 
             path="/books" 
             element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <BookListView />
+              <ProtectedRoute isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}>
+                <BookListView setIsAuthenticated={handleSetIsAuthenticated}/>
               </ProtectedRoute>
             } 
           />
