@@ -7,7 +7,7 @@ import BookListView from './pages/BookListView';
 import Login from './pages/Login';
 import ProtectedRoute from './ProtectedRoute';
 import { getIsAuthenticated, setIsAuthenticated } from './utils/localStorage';
-import "./App.css"
+
 
 const theme = createTheme({
   palette: {
